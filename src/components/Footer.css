@@ -1,0 +1,130 @@
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--off-white);
+  position: relative;
+  z-index: 2;
+}
+
+.footer__cta {
+  text-align: center;
+  padding: 140px 0;
+}
+
+.footer__cta-label {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--neutral-gray);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.footer__cta-heading {
+  font-size: clamp(36px, 6vw, 72px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 48px;
+}
+
+.footer__cta-btn {
+  font-size: 15px;
+  padding: 16px 36px;
+  text-decoration: none;
+}
+
+/* Footer Info Grid */
+.footer__info {
+  padding: 72px 0;
+}
+
+.footer__info-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.footer__brand {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.footer__desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--neutral-gray);
+  max-width: 280px;
+}
+
+.footer__col-title {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.footer__nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer__nav a {
+  font-size: 14px;
+  color: var(--dark-gray);
+  text-decoration: none;
+  transition: color var(--duration-micro) var(--ease-out);
+}
+
+.footer__nav a:hover {
+  color: var(--accent);
+}
+
+/* Footer Bottom */
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.footer__bottom p {
+  font-size: 13px;
+  color: var(--neutral-gray);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer__info-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer__cta {
+    padding: 96px 0;
+  }
+
+  .footer__info-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}

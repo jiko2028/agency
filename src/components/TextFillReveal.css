@@ -1,0 +1,16 @@
+/* ===== TEXT FILL REVEAL STYLES ===== */
+.text-fill-reveal {
+  display: inline-block;
+  line-height: 1.15;
+}
+
+.fill-word {
+  display: inline-block;
+  white-space: pre;
+}
+
+.fill-word-inner {
+  display: inline-block;
+  transition: color 0.1s ease;
+  will-change: color;
+}

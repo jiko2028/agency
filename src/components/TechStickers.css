@@ -1,0 +1,116 @@
+/* ===== TECH STICKERS WALL ===== */
+.tech-stickers-section {
+  background: #111111;
+  color: #FFFFFF;
+  padding: 120px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.tech-stickers__header {
+  text-align: center;
+  margin-bottom: 56px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tech-stickers__badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.tech-stickers__title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  color: #FFFFFF;
+}
+
+.tech-stickers__desc {
+  font-size: 15px;
+  color: var(--neutral-gray);
+  line-height: 1.6;
+}
+
+.tech-stickers__canvas {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background-color: #0b0b0c;
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* Subtle dot grid pattern on canvas */
+.tech-stickers__grid-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: radial-gradient(var(--white) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Sticker Element styling */
+.tech-sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background-color: #161618;
+  border: 1.5px solid #28282b;
+  border-radius: 100px;
+  cursor: grab;
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.tech-sticker:active {
+  cursor: grabbing;
+}
+
+.tech-sticker__icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tech-sticker__name {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: #f1f1f1;
+  letter-spacing: -0.01em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tech-stickers__canvas {
+    height: 400px;
+  }
+  
+  .tech-sticker {
+    padding: 8px 14px;
+    gap: 8px;
+  }
+
+  .tech-sticker__name {
+    font-size: 12px;
+  }
+}

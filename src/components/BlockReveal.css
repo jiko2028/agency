@@ -1,0 +1,22 @@
+/* ===== BLOCK REVEAL CURTAIN WIPE ===== */
+.block-reveal {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.block-reveal__curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.block-reveal__content {
+  display: block;
+  will-change: opacity;
+}

@@ -1,0 +1,286 @@
+@import "tailwindcss";
+
+/* ===== DESIGN TOKENS ===== */
+:root {
+  /* Colors */
+  --black: #111111;
+  --white: #FFFFFF;
+  --off-white: #F5F3EF;
+  --cream: #EDE9E1;
+  --light-gray: #E8E6E1;
+  --neutral-gray: #999999;
+  --dark-gray: #666666;
+  --accent: #C8553D;
+  --accent-hover: #B04830;
+
+  /* Theme Dynamic Variables */
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --watermark-stroke: rgba(17, 17, 17, 0.03);
+  --card-shadow: 0 15px 45px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.12);
+  --card-border: rgba(0, 0, 0, 0.1);
+  --image-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+
+  /* Typography */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --section-pad-desktop: 150px;
+  --section-pad-tablet: 96px;
+  --section-pad-mobile: 72px;
+  --content-width: 1320px;
+  --grid-gap: 32px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-micro: 250ms;
+  --duration-reveal: 500ms;
+}
+
+/* ===== DARK MODE OVERRIDES ===== */
+html[data-theme='dark'] {
+  --black: #FAF9F6;
+  --white: #121212;
+  --off-white: #1C1B19;
+  --cream: #282725;
+  --light-gray: #2D2C2A;
+  --neutral-gray: #888888;
+  --dark-gray: #BDB9B3;
+  --accent: #E56B55;
+  --accent-hover: #F2826E;
+  --navbar-bg: rgba(18, 18, 18, 0.95);
+  --watermark-stroke: rgba(255, 255, 255, 0.04);
+  --card-shadow: 0 15px 45px rgba(0, 0, 0, 0.45);
+  --card-shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.65);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --image-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== BASE RESET ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--black);
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--black);
+}
+
+h1 {
+  font-size: clamp(48px, 8vw, 110px);
+  font-weight: 500;
+}
+
+h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+}
+
+h3 {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 500;
+}
+
+h4 {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 500;
+}
+
+p {
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.7;
+  color: var(--dark-gray);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--duration-micro) var(--ease-out);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* ===== UTILITY CLASSES ===== */
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.section {
+  padding: var(--section-pad-desktop) 0;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: var(--section-pad-tablet) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--section-pad-mobile) 0;
+  }
+}
+
+/* ===== PILL BUTTON ===== */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all var(--duration-micro) var(--ease-out);
+  border: none;
+  outline: none;
+}
+
+.btn-pill:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--black);
+  border: 1.5px solid var(--black);
+}
+
+.btn-outline:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+/* Arrow icon for buttons */
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: transform var(--duration-micro) var(--ease-out);
+}
+
+.btn-pill:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--off-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-gray);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-gray);
+}
+
+
+/* ===== IMAGE DEFAULTS ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== PAGE TRANSITION ===== */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--duration-reveal) var(--ease-out),
+              transform var(--duration-reveal) var(--ease-out);
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--light-gray);
+}
